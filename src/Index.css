@@ -1,0 +1,8 @@
+html {
+  background: url(https://res.cloudinary.com/crowandrew/image/upload/w_auto,c_scale/v1603932272/portfolio/Crow_Andrew_-_High_Res_2_n88ggh.jpg)
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
