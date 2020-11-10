@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -6,6 +6,15 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import Drawer from "@material-ui/core/Drawer";
+
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import Divider from "@material-ui/core/Divider";
+import InboxIcon from "@material-ui/icons/Inbox";
+import DraftsIcon from "@material-ui/icons/Drafts";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,8 +32,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function ListItemLink(props) {
+  return <ListItem button component="a" {...props} />;
+}
+
 export default function Navbar() {
   const classes = useStyles();
+  const [sideMenu, setSideMenu] = useState({
+    drawerIsOpen: false,
+  });
+
+  const handleDrawerOpen = () => {
+    setSideMenu({ drawerIsOpen: true });
+  };
 
   return (
     <div className={classes.root}>
@@ -35,6 +55,7 @@ export default function Navbar() {
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
+            onClick={handleDrawerOpen}
           >
             <MenuIcon />
           </IconButton>
@@ -63,6 +84,31 @@ export default function Navbar() {
           </Button>
         </Toolbar>
       </AppBar>
+      <Drawer variant="persistent" open={sideMenu.drawerIsOpen}>
+        <List component="nav" aria-label="main mailbox folders">
+          <ListItem button>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary="Inbox" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <DraftsIcon />
+            </ListItemIcon>
+            <ListItemText primary="Drafts" />
+          </ListItem>
+        </List>
+        <Divider />
+        <List component="nav" aria-label="secondary mailbox folders">
+          <ListItem button>
+            <ListItemText primary="Trash" />
+          </ListItem>
+          <ListItemLink href="#simple-list">
+            <ListItemText primary="Spam" />
+          </ListItemLink>
+        </List>
+      </Drawer>
     </div>
   );
 }
