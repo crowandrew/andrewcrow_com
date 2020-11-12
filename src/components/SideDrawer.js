@@ -70,12 +70,12 @@ function SideDrawer() {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                <ListItem>
+                <ListItemLink href="/">
                     <ListItemText primary="Andrew Crow" />
-                </ListItem>
-                <ListItem>
+                </ListItemLink>
+                <ListItemLink href="/">
                     <ListItemText primary="Full-Stack Developer" />
-                </ListItem>
+                </ListItemLink>
             </List>
             <Divider />
             <List>
@@ -112,8 +112,10 @@ function SideDrawer() {
                             <MenuIcon />
                         </IconButton>
                         <Typography variant="h6" color="inherit" className={classes.title}>
-                            Andrew Crow
-            </Typography>
+                            <Link href="/" color="inherit">
+                                Andrew Crow
+                            </Link>
+                        </Typography>
                         <Button
                             color="inherit"
                             target="_blank"
