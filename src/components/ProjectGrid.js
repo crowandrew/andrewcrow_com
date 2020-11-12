@@ -1,12 +1,14 @@
 import React from "react";
+import { useEffect, useState } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import Typography from "@material-ui/core/Typography";
-import ListSubheader from '@material-ui/core/ListSubheader';
+import ReactCardFlip from 'react-card-flip';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
+
 
 const width_proportion = '85%';
 
@@ -96,26 +98,52 @@ const tileData = [
     }
 ];
 
+
 export default function ProjectGrid() {
     const classes = useStyles();
+
+    const [isFlipped, setFlipped] = useState();
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        if (isFlipped) {
+            setFlipped(false)
+        } else {
+            setFlipped(true)
+        }
+    }
 
     return (
         <div className={classes.root}>
             <GridList cellHeight={180} className={classes.gridList}>
 
                 {tileData.map((tile) => (
-                    <GridListTile key={tile.img}>
-                        <img src={tile.img} alt={tile.title} />
-                        <GridListTileBar
-                            title={tile.title}
-                            subtitle={<span>by: {tile.author}</span>}
-                            actionIcon={
-                                <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
-                                    <InfoIcon />
-                                </IconButton>
-                            }
-                        />
-                    </GridListTile>
+                    <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
+                        <GridListTile key={tile.img}>
+                            <img src={tile.img} alt={tile.title} />
+                            <GridListTileBar
+                                title={tile.title}
+                                subtitle={<span>by: {tile.author}</span>}
+                                actionIcon={
+                                    <IconButton aria-label={`info about ${tile.title}`} className={classes.icon} onClick={handleClick}>
+                                        <InfoIcon />
+                                    </IconButton>
+                                }
+                            />
+                        </GridListTile>
+                        <GridListTile>
+                            <img src={tile.img} alt={tile.title} />
+                            <GridListTileBar
+                                title={"BACK"}
+                                subtitle={<span>by: {tile.author}</span>}
+                                actionIcon={
+                                    <IconButton aria-label={`info about ${tile.title}`} className={classes.icon} onClick={handleClick}>
+                                        <InfoIcon />
+                                    </IconButton>
+                                }
+                            />
+                        </GridListTile>
+                    </ReactCardFlip>
                 ))}
             </GridList>
         </div>
