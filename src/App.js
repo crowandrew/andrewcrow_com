@@ -1,8 +1,17 @@
-import React from "react";
-import Hero from "./pages/Hero";
+import React, { Component } from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Appbar from './components/Appbar.js';
 
-function App() {
-  return <Hero />;
+
+class App extends Component {
+  render() {
+    return (
+      <React.Fragment>
+        <CssBaseline />
+        <Appbar />
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;

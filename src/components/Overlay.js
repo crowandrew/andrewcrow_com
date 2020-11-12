@@ -24,7 +24,7 @@ export default function HeroOverlay() {
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography variant="h2" component="h2">
+        <Typography variant="h3" fontWeight="fontWeightBold">
           Andrew Crow
         </Typography>
         <Typography className={classes.pos} variant="h4" color="textSecondary">
