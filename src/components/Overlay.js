@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function HeroOverlay() {
+export default function Overlay() {
   const classes = useStyles();
 
   return (

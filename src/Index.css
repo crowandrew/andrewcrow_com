@@ -5,14 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: transparent;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 
 html {
   background: url(https://res.cloudinary.com/crowandrew/image/upload/w_auto,c_scale/v1603932272/portfolio/Crow_Andrew_-_High_Res_2_n88ggh.jpg)

@@ -1,17 +1,28 @@
-import React, { Component } from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Appbar from './components/Appbar.js';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from './pages/Home'
+
+const useStyles = makeStyles((theme) => {
+
+})
+
+function App() {
+  const classes = useStyles();
+  return (
+    <Router>
+      <main >
+        <Route exact path="/" component={Home} />
+        {/* <Route path="/about" component={About} />
+          <Route path="/projects" component={Projects} />
+          <Route path="/skills" component={Skills} />
+          <Route path="/awards" component={Awards} />
+          <Route path="/contact" component={Contact} /> */}
+      </main>
+    </Router>
 
 
-class App extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <CssBaseline />
-        <Appbar />
-      </React.Fragment>
-    );
-  }
+  );
 }
 
 export default App;
