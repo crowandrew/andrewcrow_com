@@ -1,52 +1,139 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from '@material-ui/core/Paper';
+import { CardContent, Card, Grid, Paper, Typography } from "@material-ui/core";
 
-import Typography from "@material-ui/core/Typography";
-
-const width_proportion = '90%';
-const width_content = '100%';
+const width_proportion = '100%';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         flexWrap: 'wrap',
         width: width_proportion,
-        marginRight: 15,
         marginLeft: "auto",
-        marginTop: "40vh",
+        marginRight: "auto",
     },
     content: {
-        margin: 10,
-        width: width_content
+        marginTop: 5,
+        marginBottom: 5
+    },
+    awardCard: {
+        height: "30vh",
+
+    },
+    paper: {
+        backgroundColor: "FloralWhite",
+        padding: 10
     }
 }));
+
+
 
 export default function AwardsList() {
     const classes = useStyles();
 
+    const listOfAwards = [
+        {
+            id: 1,
+            name: "People's Choice Award",
+            location: "UW Bootcamp",
+            date: "November,2020",
+            for: "Award was for Minnesvart project.",
+            icon: "fas fa-award"
+        },
+        {
+            id: 2,
+            name: "Best Presentation",
+            location: "UW Bootcamp",
+            date: "November,2020",
+            for: "Award was for Minnesvart project.",
+            icon: "fas fa-crown"
+        },
+        {
+            id: 3,
+            name: "People's Choice Award",
+            location: "UW Bootcamp",
+            date: "October,2020",
+            for: "Award was for Whale Hunter project.",
+            icon: "fas fa-award"
+        },
+        {
+            id: 4,
+            name: "Best Functionality",
+            location: "UW Bootcamp",
+            date: "October,2020",
+            for: "Award was for Whale Hunter project.",
+            icon: "fas fa-medal"
+        },
+        {
+            id: 5,
+            name: "Best UI/UX",
+            location: "UW Bootcamp",
+            date: "September,2020",
+            for: "Award was for moodSing project",
+            icon: "fas fa-trophy"
+        },
+        {
+            id: 6,
+            name: "Avvo Star Award",
+            location: "Avvo.com",
+            date: "August, 2017",
+            for: "Top 1% of the company annually",
+            icon: "fas fa-star"
+        },
+        {
+            id: 7,
+            name: "Sales Manager of the Quarter, Q2",
+            location: "Avvo.com",
+            date: "June, 2017",
+            for: "Top Sales Manager of the quarter",
+            icon: "fas fa-dollar-sign"
+        },
+    ]
+
     return (
         <div className={classes.root}>
-            <Paper elevation={3}>
-                <Typography className={classes.content}>
-                    <h3>Awards</h3>
-                    <dl class="uk-description-list">
-                        <dt>People's Choice Award</dt>
-                        <dd>UW Bootcamp | October,2020 | Award was for Whale Hunter project.</dd>
-                        <dd><br></br></dd>
-                        <dt>Best Functionality</dt>
-                        <dd>UW Bootcamp | October,2020 | Award was for Whale Hunter project.</dd>
-                        <dd><br></br></dd>
-                        <dt>Best UI/UX</dt>
-                        <dd>UW Bootcamp | September,2020 | Award was for moodSing project.</dd>
-                        <dd><br></br></dd>
-                        <dt>Avvo Star Award</dt>
-                        <dd>Avvo.com | August, 2017 | Only awarded to top 1% of the company annually</dd>
-                        <dd><br></br></dd>
-                        <dt>Sales Manager of the Quarter, Q2 2017</dt>
-                        <dd>Avvo.com | June, 2017 | Top Sales Manager of the quarter</dd>
-                    </dl>
+            <Paper square elevation={3} className={classes.paper}>
+                <Typography variant="h3" className={classes.content}>
+                    Awards
                 </Typography>
+                <Grid
+                    container
+                    justify="space-evenly"
+                    spacing={2}
+                >
+                    {listOfAwards.map((award) => (
+                        <Grid key={award.id} item xs={12} sm={6} md={4} lg={3}>
+                            <Card className={classes.awardCard} elevation={6}>
+                                <CardContent>
+                                    <Grid container>
+                                        <Grid item xs={2}>
+                                            <Typography variant="h6">
+                                                <i className={award.icon}></i>
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item xs={10}>
+                                            <Typography variant="h6">
+                                                {award.name}
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item xs={12}>
+                                            <Typography variant="subtitle1">
+                                                {award.location} | {award.date}
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item xs={12}>
+                                            <Typography variant="body1">
+                                                {award.for}
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                </CardContent>
+                            </Card>
+
+                        </Grid>
+                    ))}
+                </Grid>
+
             </Paper>
         </div>
     );
