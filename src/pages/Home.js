@@ -1,13 +1,19 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import Overlay from "../components/Overlay";
-import SideDrawer from "../components/SideDrawer";
+
+const useStyles = makeStyles({
+  root: {
+    height: "100vh"
+  },
+});
 
 function Home() {
+  const classes = useStyles();
   return (
-    <div>
-      <SideDrawer />
+    <div className={classes.root}>
       <Overlay />
-    </div>
+    </div >
   );
 }
 
