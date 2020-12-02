@@ -1,30 +1,82 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, Grid, useScrollTrigger, Fab, Zoom } from '@material-ui/core';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
+import Skills from './pages/Skills'
 import Awards from './pages/Awards'
+import Contact from './pages/Contact'
+import SideDrawer from "./components/SideDrawer"
 
-const useStyles = makeStyles((theme) => {
+const useStyles = makeStyles((theme) => ({
+  root: {
+  },
+}));
 
-})
+function ScrollTop(props) {
+  const { children, window } = props;
+  const classes = useStyles();
 
-function App() {
+  const trigger = useScrollTrigger({
+    target: window ? window() : undefined,
+    disableHysteresis: true,
+    threshold: 100,
+  });
+
+  const handleClick = (event) => {
+    const anchor = (event.target.ownerDocument || document).querySelector('#veryTop');
+
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
+  return (
+    <Zoom in={trigger}>
+      <div onClick={handleClick} role="presentation" className={classes.root}>
+        {children}
+      </div>
+    </Zoom>
+  );
+}
+
+function App(props) {
   const classes = useStyles();
   return (
     <Router>
-      <main >
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/projects" component={Projects} />
-        {/* <Route path="/skills" component={Skills} /> */}
-        <Route path="/awards" component={Awards} />
-        {/* <Route path="/contact" component={Contact} /> */}
-      </main>
+      <Grid container className={classes.root}>
+        <Grid item xs={12} id="veryTop">
+        </Grid>
+        <Route exact path="/">
+          <Grid item xs={12} id="home">
+            <SideDrawer />
+            <Home />
+          </Grid>
+          <Grid item xs={12} id="about">
+            <About />
+          </Grid>
+          <Grid item xs={12} id="projects">
+            <Projects />
+          </Grid>
+          <Grid item xs={12} id="skills">
+            <Skills />
+          </Grid>
+          <Grid item xs={12} id="awards">
+            <Awards />
+          </Grid>
+          <Grid item xs={12} id="contact">
+            <Contact />
+          </Grid>
+        </Route>
+      </Grid>
+      <ScrollTop {...props}>
+        <Fab color="secondary" size="small" aria-label="scroll back to top">
+          <KeyboardArrowUpIcon />
+        </Fab>
+      </ScrollTop>
     </Router>
-
-
   );
 }
 
