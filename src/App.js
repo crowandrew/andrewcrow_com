@@ -12,6 +12,9 @@ import SideDrawer from "./components/SideDrawer"
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    position: 'fixed',
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
   },
 }));
 
@@ -43,10 +46,10 @@ function ScrollTop(props) {
 }
 
 function App(props) {
-  const classes = useStyles();
+
   return (
     <Router>
-      <Grid container className={classes.root}>
+      <Grid container >
         <Grid item xs={12} id="veryTop">
         </Grid>
         <Route exact path="/">
