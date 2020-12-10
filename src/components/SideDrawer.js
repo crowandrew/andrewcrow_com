@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Slide, useScrollTrigger, IconButton, AppBar, Toolbar, Popover, Drawer, Button, List, Divider, ListItem, ListItemIcon, ListItemText, Typography } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { NavHashLink } from 'react-router-hash-link';
-
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -60,6 +60,7 @@ function SideDrawer(props) {
     const [anchorLinkedInEl, setAnchorLinkedInEl] = React.useState(null);
     const [anchorEmailEl, setAnchorEmailEl] = React.useState(null);
     const [anchorPhoneEl, setAnchorPhoneEl] = React.useState(null);
+    const largeScreen = useMediaQuery('(min-width:600px)')
 
     const handleGitHubPopoverOpen = (event) => {
         setAnchorGitHubEl(event.currentTarget);
@@ -180,9 +181,9 @@ function SideDrawer(props) {
                                 <MenuIcon />
                             </IconButton>
                             <Typography variant="h6" color="inherit" className={classes.title}>
-                                <NavHashLink smooth style={{ textDecoration: 'none', color: 'white' }} to="/#home">
+                                {largeScreen ? <NavHashLink smooth style={{ textDecoration: 'none', color: 'white' }} to="/#home">
                                     Andrew Crow
-                            </NavHashLink>
+                            </NavHashLink> : ""}
                             </Typography>
                             <Button
                                 color="inherit"
