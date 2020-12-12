@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { CardContent, Card, Grid, Paper, Typography } from "@material-ui/core";
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const width_proportion = '100%';
 
@@ -13,16 +14,19 @@ const useStyles = makeStyles((theme) => ({
         marginRight: "auto",
     },
     content: {
-        marginTop: 5,
+        marginTop: 10,
         marginBottom: 5
     },
     awardCard: {
-        height: "30vh",
+        maxWidth: 290
 
     },
     paper: {
         backgroundColor: "FloralWhite",
         padding: 10
+    },
+    yellow: {
+        color: "gold"
     }
 }));
 
@@ -30,46 +34,47 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AwardsList() {
     const classes = useStyles();
+    const largeScreen = useMediaQuery('(min-width:600px)')
 
     const listOfAwards = [
         {
             id: 1,
             name: "People's Choice Award",
             location: "UW Bootcamp",
-            date: "November,2020",
-            for: "Award was for Minnesvart project.",
+            date: "November, 2020",
+            for: "Award was for Minnesvart.",
             icon: "fas fa-award"
         },
         {
             id: 2,
             name: "Best Presentation",
             location: "UW Bootcamp",
-            date: "November,2020",
-            for: "Award was for Minnesvart project.",
+            date: "November, 2020",
+            for: "Award was for Minnesvart.",
             icon: "fas fa-crown"
         },
         {
             id: 3,
             name: "People's Choice Award",
             location: "UW Bootcamp",
-            date: "October,2020",
-            for: "Award was for Whale Hunter project.",
+            date: "October, 2020",
+            for: "Award was for Whale Hunter.",
             icon: "fas fa-award"
         },
         {
             id: 4,
             name: "Best Functionality",
             location: "UW Bootcamp",
-            date: "October,2020",
-            for: "Award was for Whale Hunter project.",
+            date: "October, 2020",
+            for: "Award was for Whale Hunter.",
             icon: "fas fa-medal"
         },
         {
             id: 5,
             name: "Best UI/UX",
             location: "UW Bootcamp",
-            date: "September,2020",
-            for: "Award was for moodSing project",
+            date: "September, 2020",
+            for: "Award was for moodSing",
             icon: "fas fa-trophy"
         },
         {
@@ -82,7 +87,7 @@ export default function AwardsList() {
         },
         {
             id: 7,
-            name: "Sales Manager of the Quarter, Q2",
+            name: "Manager of the Quarter",
             location: "Avvo.com",
             date: "June, 2017",
             for: "Top Sales Manager of the quarter",
@@ -99,19 +104,19 @@ export default function AwardsList() {
                 <Grid
                     container
                     justify="space-evenly"
-                    spacing={2}
+                    spacing={largeScreen ? 3 : 2}
                 >
                     {listOfAwards.map((award) => (
                         <Grid key={award.id} item xs={12} sm={6} md={4} lg={3}>
                             <Card className={classes.awardCard} elevation={6}>
                                 <CardContent>
-                                    <Grid container>
+                                    <Grid container >
                                         <Grid item xs={2}>
-                                            <Typography variant="h6">
+                                            <Typography className={classes.yellow} variant="h6">
                                                 <i className={award.icon}></i>
                                             </Typography>
                                         </Grid>
-                                        <Grid item xs={10}>
+                                        <Grid item xs={10} >
                                             <Typography variant="h6">
                                                 {award.name}
                                             </Typography>
