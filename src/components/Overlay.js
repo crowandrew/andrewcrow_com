@@ -5,12 +5,18 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles({
   root: {
+    background: "url(https://res.cloudinary.com/crowandrew/image/upload/w_auto,c_scale/v1603932272/portfolio/Crow_Andrew_-_High_Res_2_n88ggh.png) no-repeat center center fixed",
+    height: "100%",
+    backgroundSize: "cover",
+    paddingTop: "50vh"
+  },
+  card: {
     minWidth: 275,
     maxWidth: 400,
     opacity: 0.8,
     marginRight: 15,
     marginLeft: "auto",
-    marginTop: "50vh",
+
   },
   pos: {
     marginBottom: 6,
@@ -22,17 +28,19 @@ export default function Overlay() {
   const largeScreen = useMediaQuery('(min-width:600px)')
 
   return (
-    <Card className={classes.root}>
-      <CardContent>
-        <Typography variant={largeScreen ? "h3" : "h4"} fontWeight="fontWeightBold">
-          Andrew Crow
+    <div className={classes.root}>
+      <Card className={classes.card}>
+        <CardContent>
+          <Typography variant={largeScreen ? "h3" : "h4"} fontWeight="fontWeightBold">
+            Andrew Crow
         </Typography>
-        <Typography className={classes.pos} variant={largeScreen ? "h4" : "h5"} color="textSecondary">
-          Full-Stack Developer
+          <Typography className={classes.pos} variant={largeScreen ? "h4" : "h5"} color="textSecondary">
+            Full-Stack Developer
         </Typography><Typography className={classes.pos} variant={largeScreen ? "subtitle1" : "subtitle2"} color="inherit">
-          #OPENTOWORK
+            #OPENTOWORK
         </Typography>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </div>
   );
 }
