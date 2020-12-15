@@ -2,9 +2,12 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Overlay from "../components/Overlay";
 
+const height_proportion = "100%"
+
 const useStyles = makeStyles({
   root: {
-    height: "100vh"
+    height: height_proportion,
+
   },
 });
 

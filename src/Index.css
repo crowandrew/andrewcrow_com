@@ -12,12 +12,13 @@ code {
     monospace;
 }
 
-/* html {
+html {
   background: url(https://res.cloudinary.com/crowandrew/image/upload/w_auto,c_scale/v1603932272/portfolio/Crow_Andrew_-_High_Res_2_n88ggh.png)
-    no-repeat center center fixed;
+    no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-attachment: scroll;
   height: 100%;
-} */
+}

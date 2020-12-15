@@ -40,18 +40,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AboutMe() {
     const classes = useStyles();
-    const largeScreen = useMediaQuery('(min-width:905px)')
-    const smallScreen = useMediaQuery('(max-width:400px')
+    const largeScreen = useMediaQuery('(min-width:900px)')
+    const smallScreen = useMediaQuery('(min-width:765px')
 
     return (
 
         <div className={classes.root}>
-            <Paper square elevation={3} className={smallScreen ? classes.paperSmall : classes.paper}>
+            <Paper square elevation={3} className={!smallScreen ? classes.paperSmall : classes.paper}>
 
                 <Typography variant={largeScreen ? "h3" : "h4"} className={classes.content}>
                     Hello, my name is Andrew Crow.
                 </Typography>
-                {smallScreen ?
+                {!smallScreen ?
                     <Typography variant={largeScreen ? "h5" : "h6"} color="textSecondary">
                         I'm a senior-level sales leader turned <span className={classes.highlight}>full-stack developer</span>.
                         I decided to leave sales and  pursue my passion to build and create.
@@ -63,20 +63,21 @@ export default function AboutMe() {
                     <Fragment>
                         <Typography variant={largeScreen ? "h5" : "h6"} color="textSecondary">
                             I'm a senior-level sales leader turned <span className={classes.highlight}>full-stack developer</span>.
-                </Typography>
+                    </Typography>
                         <Typography variant={largeScreen ? "h5" : "h6"} color="textSecondary">
                             I decided to leave sales and  pursue my passion to build and create.
-                </Typography>
+                    </Typography>
                         <Typography variant={largeScreen ? "h5" : "h6"} color="textSecondary">
                             I graduated <span className={classes.highlight}>top of my class</span> from the University of Washington Coding BootCamp.
-                </Typography>
+                    </Typography>
                         <Typography variant={largeScreen ? "h5" : "h6"} color="textSecondary">
                             Please check out my <span className={classes.highlight}>awarding winning</span> projects in my projects section below.
-                </Typography>
+                    </Typography>
                         <Typography variant={largeScreen ? "h5" : "h6"} color="textSecondary">
                             Also, you can stop here and say hello at <span className={classes.highlight}>andrew@crow.me</span>.
-                </Typography>
-                    </Fragment>}
+                    </Typography>
+                    </Fragment>
+                }
             </Paper>
         </div>
     );
