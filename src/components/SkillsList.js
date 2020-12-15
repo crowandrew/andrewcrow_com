@@ -4,6 +4,7 @@ import { Grid, Paper, Typography } from "@material-ui/core"
 import { CloudinaryContext, Image, } from "cloudinary-react";
 import Tooltip from '@material-ui/core/Tooltip';
 
+
 const width_proportion = '100%';
 
 const useStyles = makeStyles({
@@ -31,6 +32,7 @@ const useStyles = makeStyles({
 
 export default function SkillsGrid() {
     const classes = useStyles();
+
 
     const skillsList = [
         {
@@ -201,12 +203,15 @@ export default function SkillsGrid() {
                     {skillsList.map(
                         card =>
                             <Grid key={card.id} item xs={6} sm={3} md={2} className={classes.media} >
-                                <Tooltip title={
-                                    <React.Fragment>
-                                        <Typography color="inherit" variant="h6">{card.name}</Typography>
-                                        <Typography color="inherit" variant="subtitle1">{card.description}</Typography>
-                                    </React.Fragment>
-                                }>
+                                <Tooltip
+                                    enterTouchDelay="0"
+                                    leaveTouchDelay="1500"
+                                    start="bottom-end"
+                                    title={
+                                        <React.Fragment>
+                                            <Typography color="inherit" variant="h6">{card.name}</Typography>
+                                        </React.Fragment>
+                                    }>
                                     <CloudinaryContext cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}>
                                         <Image
                                             className={classes.image}
