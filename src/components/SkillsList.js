@@ -22,6 +22,11 @@ const useStyles = makeStyles({
         marginRight: "auto",
         marginLeft: "auto"
     },
+    title: {
+        marginTop: 5,
+        marginBottom: 5,
+        fontWeight: "bold"
+    }
 });
 
 export default function SkillsGrid() {
@@ -138,9 +143,9 @@ export default function SkillsGrid() {
         },
         {
             id: 19,
-            name: "GitHub",
-            description: "Hosting for software development and version control using Git",
-            image: "/portfolio/github_gwlmx2.png"
+            name: "git",
+            description: "A distributed version-control system for tracking changes in any set of files.",
+            image: "/portfolio/git_k5bb3r.png"
         },
         {
             id: 20,
@@ -183,7 +188,7 @@ export default function SkillsGrid() {
     return (
         <div className={classes.root}>
             <Paper square elevation={3} className={classes.paper}>
-                <Typography variant="h3" className={classes.content}>
+                <Typography variant="h3" className={classes.title}>
                     Skills
                 </Typography>
                 <Grid

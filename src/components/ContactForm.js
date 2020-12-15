@@ -15,12 +15,14 @@ const useStyles = makeStyles((theme) => ({
         marginRight: "auto",
     },
     paper: {
-        backgroundColor: "white",
+        backgroundColor: "grey",
         padding: 10
     },
     content: {
         marginTop: 5,
-        marginBottom: 5
+        marginBottom: 5,
+        color: "white",
+        fontWeight: "bold"
     },
     form: {
         width: '100%', // Fix IE 11 issue.
@@ -36,6 +38,12 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(3),
         marginLeft: "auto",
 
+    },
+    white: {
+        backgroundColor: "white"
+    },
+    textWhite: {
+        color: "white"
     }
 }));
 
@@ -89,13 +97,14 @@ export default function SignUp() {
                 <Typography variant="h3" className={classes.content}>
                     Contact Me
                 </Typography>
-                <Grid container spacing={3}>
-                    <Grid item xs={12} sm={6}>
-                        <form className={classes.form} onSubmit={handleFormSubmit} noValidate>
+                <Grid container spacing={3} >
+                    <Grid item xs={12} sm={6} >
+                        <form className={classes.form} onSubmit={handleFormSubmit} noValidate >
                             <Grid container spacing={2}>
                                 <Grid item xs={12} >
                                     <TextField
-                                        variant="outlined"
+                                        variant="filled"
+                                        className={classes.white}
                                         required
                                         fullWidth
                                         id="from_name"
@@ -109,7 +118,8 @@ export default function SignUp() {
 
                                 <Grid item xs={12}>
                                     <TextField
-                                        variant="outlined"
+                                        variant="filled"
+                                        className={classes.white}
                                         required
                                         fullWidth
                                         id="email"
@@ -122,7 +132,8 @@ export default function SignUp() {
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextField
-                                        variant="outlined"
+                                        variant="filled"
+                                        className={classes.white}
                                         required
                                         fullWidth
                                         id="subject"
@@ -135,7 +146,8 @@ export default function SignUp() {
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextField
-                                        variant="outlined"
+                                        variant="filled"
+                                        className={classes.white}
                                         required
                                         fullWidth
                                         id="message"
@@ -223,7 +235,7 @@ export default function SignUp() {
                                             target="_blank"
                                             href="mailto:andrew@crow.me"
                                         >
-                                            <Typography variant="h6" >
+                                            <Typography variant="h6" className={classes.textWhite}>
                                                 <i className="fas fa-2x fa-envelope"></i>
                                             </Typography>
                                         </Button>
@@ -244,7 +256,7 @@ export default function SignUp() {
                                             target="_blank"
                                             href="tel:775-560-8894"
                                         >
-                                            <Typography variant="h6" >
+                                            <Typography variant="h6" className={classes.textWhite}>
                                                 <i className="fas fa-2x fa-phone-square"></i>
                                             </Typography>
                                         </Button>

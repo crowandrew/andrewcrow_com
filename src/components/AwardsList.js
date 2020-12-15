@@ -15,14 +15,16 @@ const useStyles = makeStyles((theme) => ({
     },
     content: {
         marginTop: 10,
-        marginBottom: 5
+        marginBottom: 5,
+        color: "white",
+        fontWeight: "bold"
     },
     awardCard: {
-        maxWidth: 290
+        maxWidth: 310
 
     },
     paper: {
-        backgroundColor: "FloralWhite",
+        backgroundColor: "grey",
         padding: 10
     },
     yellow: {
@@ -104,11 +106,11 @@ export default function AwardsList() {
                 <Grid
                     container
                     justify="space-evenly"
-                    spacing={largeScreen ? 3 : 2}
+                    spacing={largeScreen ? 2 : 1}
                 >
                     {listOfAwards.map((award) => (
-                        <Grid key={award.id} item xs={12} sm={6} md={4} lg={3}>
-                            <Card className={classes.awardCard} elevation={6}>
+                        <Grid key={award.id} item xs={12} sm={6} md={4} lg={3} className={classes.awardCard}>
+                            <Card elevation={6}>
                                 <CardContent>
                                     <Grid container >
                                         <Grid item xs={2}>

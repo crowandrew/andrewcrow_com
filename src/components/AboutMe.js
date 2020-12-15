@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Typography } from '@material-ui/core';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const width_proportion = '100%';
 
@@ -13,53 +14,69 @@ const useStyles = makeStyles((theme) => ({
         marginRight: "auto",
     },
     content: {
-        marginTop: 5,
-        marginBottom: 5,
+        marginTop: 15,
+        marginBottom: 10,
+        color: "white",
+        fontWeight: "bold"
     },
     paper: {
-        backgroundColor: "white",
+        backgroundColor: "grey",
+        width: width_proportion,
+        padding: 10,
+        paddingBottom: "20vh",
+        textAlign: "center",
+    },
+    paperSmall: {
+        backgroundColor: "grey",
+        width: width_proportion,
         padding: 10,
         paddingBottom: "20vh"
+    },
+    highlight: {
+        color: "lightgrey",
+        fontWeight: "bold"
     }
 }));
 
 export default function AboutMe() {
     const classes = useStyles();
+    const largeScreen = useMediaQuery('(min-width:905px)')
+    const smallScreen = useMediaQuery('(max-width:400px')
 
     return (
+
         <div className={classes.root}>
-            <Paper square elevation={3} className={classes.paper}>
-                <Typography variant="h3" className={classes.content}>
-                    About Me
+            <Paper square elevation={3} className={smallScreen ? classes.paperSmall : classes.paper}>
+
+                <Typography variant={largeScreen ? "h3" : "h4"} className={classes.content}>
+                    Hello, my name is Andrew Crow.
                 </Typography>
-                <Typography variant="body1" paragraph={true}>
-                    I have had a passion for technology since I was a little boy and saw my first Apple
-                    Macintosh, I wasn’t sure what it did, but it was love at first sight. My journey continued throughout my
-                    youth of building PCs, burning bootleg CDs full of MP3s for friends, and dreaming of the future.
+                {smallScreen ?
+                    <Typography variant={largeScreen ? "h5" : "h6"} color="textSecondary">
+                        I'm a senior-level sales leader turned <span className={classes.highlight}>full-stack developer</span>.
+                        I decided to leave sales and  pursue my passion to build and create.
+                        I graduated <span className={classes.highlight}>top of my class</span> from the University of Washington Coding BootCamp.
+                        Please check out my <span className={classes.highlight}>awarding winning</span> projects in my projects section below.
+                        Also, you can stop here and say hello at <span className={classes.highlight}>andrew@crow.me</span>.
                 </Typography>
-                <Typography variant="body1" paragraph={true}>
-                    When I turned 16 a friend of mine had a great idea that we should start our own ISP (Internet Service
-                    Provider), so we set out to start our own business. We convinced a local computer repair store to use
-                    their upstairs storage area and an investor to pay for the equipment. In a few months, we launched
-                    Eze-inter.net, and had a blast doing it. As you can expect at 16 I didn’t have any knowledge of
-                    contracts or business ownership I was just passionate to build something with technology. The investor
-                    in the end sold the business as soon as he could make a profit. This passion and drive continued through
-                    multiple roles in tech from a network administrator to a computer teacher at an elementary school.
+                    :
+                    <Fragment>
+                        <Typography variant={largeScreen ? "h5" : "h6"} color="textSecondary">
+                            I'm a senior-level sales leader turned <span className={classes.highlight}>full-stack developer</span>.
                 </Typography>
-                <Typography variant="body1" paragraph={true}>
-                    However, unforeseen financial hardship arising from an accident while moving drove me to pursue quick
-                    money. I moonlighted selling car parts for a large aftermarket car parts supplier and found that I could
-                    pay my medical debt faster. This drove me into the sales world where I have been for the last 15 years.
-                    Each successful role after role as I moved up the leadership hierarchy didn’t fulfill this need for
-                    building something with technology, so after a long discussion with my wife. Basically her telling me
-                    100 times that I should just quit my job and do something else. I left my role as Director of Sales in
-                    July 2020 in the middle of a pandemic.
+                        <Typography variant={largeScreen ? "h5" : "h6"} color="textSecondary">
+                            I decided to leave sales and  pursue my passion to build and create.
                 </Typography>
-                <Typography variant="body1" paragraph={true}>
-                    I decided to join a Full Stack Developer Bootcamp and start building amazing things. I’m passionate about
-                    coding, but also love to hike, backpack, travel, and cook, so if you are into these things too feel free
-                    to reach out. I hope our paths cross at some point in a meaningful way.
+                        <Typography variant={largeScreen ? "h5" : "h6"} color="textSecondary">
+                            I graduated <span className={classes.highlight}>top of my class</span> from the University of Washington Coding BootCamp.
                 </Typography>
+                        <Typography variant={largeScreen ? "h5" : "h6"} color="textSecondary">
+                            Please check out my <span className={classes.highlight}>awarding winning</span> projects in my projects section below.
+                </Typography>
+                        <Typography variant={largeScreen ? "h5" : "h6"} color="textSecondary">
+                            Also, you can stop here and say hello at <span className={classes.highlight}>andrew@crow.me</span>.
+                </Typography>
+                    </Fragment>}
             </Paper>
         </div>
     );

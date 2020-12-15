@@ -63,11 +63,11 @@ function App(props) {
           <Grid item xs={12} id="projects">
             <Projects />
           </Grid>
-          <Grid item xs={12} id="skills">
-            <Skills />
-          </Grid>
           <Grid item xs={12} id="awards">
             <Awards />
+          </Grid>
+          <Grid item xs={12} id="skills">
+            <Skills />
           </Grid>
           <Grid item xs={12} id="contact">
             <Contact />

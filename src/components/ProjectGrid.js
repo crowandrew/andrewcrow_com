@@ -14,12 +14,13 @@ const useStyles = makeStyles({
         marginRight: "auto",
     },
     paper: {
-        backgroundColor: "FloralWhite",
+        backgroundColor: "white",
         padding: 10
     },
     content: {
         marginTop: 5,
-        marginBottom: 5
+        marginBottom: 5,
+        fontWeight: "bold"
     }
 });
 

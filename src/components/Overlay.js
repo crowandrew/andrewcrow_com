@@ -29,6 +29,8 @@ export default function Overlay() {
         </Typography>
         <Typography className={classes.pos} variant={largeScreen ? "h4" : "h5"} color="textSecondary">
           Full-Stack Developer
+        </Typography><Typography className={classes.pos} variant={largeScreen ? "subtitle1" : "subtitle2"} color="inherit">
+          #OPENTOWORK
         </Typography>
       </CardContent>
     </Card>
