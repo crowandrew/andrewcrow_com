@@ -154,7 +154,7 @@ function SideDrawer(props) {
                         </ListItem>
                     </NavHashLink>
                 ))}
-                <ListItemLink href="https://docs.google.com/document/d/1-4lRiFKLtuhT_8LAQ5IiyTrHnwJyHX79iLn7oBrjG24/edit?usp=sharing" target="_blank">
+                <ListItemLink href="https://docs.google.com/document/d/1Y627g2q2XLMlYickJX6SnSuxMva0X4pig5L3nkAZ7ls/edit?usp=sharing" target="_blank">
                     <ListItemIcon>
                         <i className="far fa-file"></i>
                     </ListItemIcon>
